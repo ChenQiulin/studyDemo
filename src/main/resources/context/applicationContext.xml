@@ -9,7 +9,7 @@
 	
 	<!-- 异常处理方式1 -->
 
-<bean id="exceptionHandler" class="cn.basttg.core.exception.MyExceptionHandler"/>
+<bean id="exceptionHandler" class="study.srping.exception.exception.MyExceptionHandler"/>
 
 
 	<!-- 异常处理方式2 -->
