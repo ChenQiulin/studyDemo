@@ -20,7 +20,7 @@ public class TestDao {
 		case 5:
 			throw new BusinessException("52", "dao52");
 		default:
-			throw new ParameterException("Dao Parameter   Error");
+			throw new ParameterException("Dao Parameter 2  Error");
 		}
 	}
 }
