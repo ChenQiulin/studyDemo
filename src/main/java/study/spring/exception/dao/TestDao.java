@@ -1,9 +1,9 @@
-package study.srping.exception.dao;
+package study.spring.exception.dao;
 
 import org.springframework.stereotype.Repository;
 
-import study.srping.exception.exception.BusinessException;
-import study.srping.exception.exception.ParameterException;
+import study.spring.exception.exception.BusinessException;
+import study.spring.exception.exception.ParameterException;
 
 @Repository("testDao")
 public class TestDao {

@@ -1,4 +1,4 @@
-package study.srping.exception.exception;
+package study.spring.exception.exception;
 
 /**
  * 系统业务异常

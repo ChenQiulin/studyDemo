@@ -1,4 +1,4 @@
-package study.srping.exception.controller;
+package study.spring.exception.controller;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -7,9 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import study.srping.exception.exception.BusinessException;
-import study.srping.exception.exception.ParameterException;
-import study.srping.exception.service.TestService;
+import study.spring.exception.exception.BusinessException;
+import study.spring.exception.exception.ParameterException;
+import study.spring.exception.service.TestService;
 
 @Controller
 public class TestController extends BaseController {

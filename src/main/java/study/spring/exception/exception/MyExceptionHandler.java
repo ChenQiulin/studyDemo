@@ -1,4 +1,4 @@
-package study.srping.exception.exception;
+package study.spring.exception.exception;
 
 import java.util.HashMap;
 import java.util.Map;

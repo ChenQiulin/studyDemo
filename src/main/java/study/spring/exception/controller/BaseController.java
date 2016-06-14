@@ -1,11 +1,11 @@
-package study.srping.exception.controller;
+package study.spring.exception.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import study.srping.exception.exception.BusinessException;
-import study.srping.exception.exception.ParameterException;
+import study.spring.exception.exception.BusinessException;
+import study.spring.exception.exception.ParameterException;
 
 public class BaseController {
 	

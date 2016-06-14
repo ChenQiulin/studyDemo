@@ -3,7 +3,7 @@
  *                             All rights reserved.
  */
 
-package study.srping.exception.exception;
+package study.spring.exception.exception;
 
 /**
  * (用一句话描述类的主要功能)

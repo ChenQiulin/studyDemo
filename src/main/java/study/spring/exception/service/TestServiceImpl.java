@@ -1,12 +1,12 @@
-package study.srping.exception.service;
+package study.spring.exception.service;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import study.srping.exception.dao.TestDao;
-import study.srping.exception.exception.BusinessException;
-import study.srping.exception.exception.ParameterException;
+import study.spring.exception.dao.TestDao;
+import study.spring.exception.exception.BusinessException;
+import study.spring.exception.exception.ParameterException;
 
 @Service("testService")
 public class TestServiceImpl implements TestService {
