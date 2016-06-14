@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+	
+	<!-- 异常处理方式1 -->
+
+<bean id="exceptionHandler" class="cn.basttg.core.exception.MyExceptionHandler"/>
+
+
+	<!-- 异常处理方式2 -->
+<!--
+	<bean
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		&lt;!&ndash; 定义默认的异常处理页面，当该异常类型的注册时使用 &ndash;&gt;
+		<property name="defaultErrorView" value="error"></property>
+		&lt;!&ndash; 定义异常处理页面用来获取异常信息的变量名，默认名为exception &ndash;&gt;
+		<property name="exceptionAttribute" value="ex"></property>
+		&lt;!&ndash; 定义需要特殊处理的异常，用类名或完全路径名作为key，异常也页名作为值 &ndash;&gt;
+		<property name="exceptionMappings">
+			<props>
+				<prop key="cn.basttg.core.exception.BusinessException">error-business</prop>
+				<prop key="cn.basttg.core.exception.ParameterException">error-parameter</prop>
+			</props>
+		</property>
+
+		&lt;!&ndash; 相关状态码对应的错误页面 &ndash;&gt;
+		<property name="statusCodes">
+			<props>
+				<prop key="errors/500">500</prop>
+				<prop key="errors/404">404</prop>
+			</props>
+		</property>
+		&lt;!&ndash; 设置日志输出级别，不定义则默认不输出警告等错误日志信息 &ndash;&gt;
+		<property name="warnLogCategory" value="WARN" />
+		&lt;!&ndash; 默认HTTP状态码 &ndash;&gt;
+		<property name="defaultStatusCode" value="500" />
+	</bean>-->
+	 
+
+	<context:annotation-config />
+	
+	<!-- 异常bean扫描 -->
+	<context:component-scan base-package="cn.basttg.core.dao, cn.basttg.core.service" />
+	
+</beans>
