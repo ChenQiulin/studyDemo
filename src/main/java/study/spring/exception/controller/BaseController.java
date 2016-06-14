@@ -13,7 +13,7 @@ public class BaseController {
 	//(value = { BusinessException.class, ParameterException.class, Exception.class})
 	@ExceptionHandler
 	public String exp(HttpServletRequest request, Exception ex) {
-		
+		ex.printStackTrace();
 		request.setAttribute("ex", ex);
 		
 		// 根据不同错误转向不同页面
