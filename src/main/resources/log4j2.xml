@@ -37,94 +37,7 @@
 			</Policies>
 			<PatternLayout pattern="%d (%F:%L) %-5p - %m%n" />
 		</RollingFile>
-		<RollingFile name="FILE_PAY_REPLY_FRONT"
-			fileName="/www/applog/mvc_exception/pay_reply_front.log" filePattern="/www/applog/mvc_exception/pay_reply_front-%d{yyyy-MM-dd}-%i.log">
 
-			<Policies>
-				<TimeBasedTriggeringPolicy interval="1"
-					modulate="true" />
-				<SizeBasedTriggeringPolicy size="512 MB" />
-			</Policies>
-			<PatternLayout pattern="%d (%F:%L) %-5p - %m%n" />
-		</RollingFile>
-		<RollingFile name="FILE_PAY_REPLY_INVALID"
-			fileName="/www/applog/mvc_exception/pay_reply_invalid.log"
-			filePattern="/www/applog/mvc_exception/pay_reply_invalid-%d{yyyy-MM-dd}-%i.log">
-
-			<Policies>
-				<TimeBasedTriggeringPolicy interval="1"
-					modulate="true" />
-				<SizeBasedTriggeringPolicy size="512 MB" />
-			</Policies>
-			<PatternLayout pattern="%d (%F:%L) %-5p - %m%n" />
-		</RollingFile>
-
-		<RollingFile name="REQUEST_HANDLE"
-					 fileName="/www/applog/mvc_exception/request_handle.log"
-					 filePattern="/www/applog/mvc_exception/request_handle-%d{yyyy-MM-dd}-%i.log">
-			<Policies>
-				<TimeBasedTriggeringPolicy interval="1"
-										   modulate="true" />
-				<SizeBasedTriggeringPolicy size="512 MB" />
-			</Policies>
-			<PatternLayout pattern="%d (%F:%L) %-5p - %m%n" />
-		</RollingFile>
-
-		
-		<RollingFile name="APP_CRASH_REPORT"
-			fileName="/www/applog/app_crash/report.log"
-			filePattern="/www/applog/app_crash/report-%d{yyyy-MM-dd}-%i.log">
-			<Policies>
-				<TimeBasedTriggeringPolicy interval="1"
-					modulate="true" />
-				<SizeBasedTriggeringPolicy size="512 MB" />
-			</Policies>
-			<PatternLayout pattern="%d (%F:%L) %-5p - %m%n" />
-		</RollingFile>
-		
-		<RollingFile name="APP_INSTALL_AF_CALLBACK"
-			fileName="/www/applog/app_install/af_callback.log"
-			filePattern="/www/applog/app_install/af_callback-%d{yyyy-MM-dd}-%i.log">
-			<Policies>
-				<TimeBasedTriggeringPolicy interval="1"
-					modulate="true" />
-				<SizeBasedTriggeringPolicy size="512 MB" />
-			</Policies>
-			<PatternLayout pattern="%d (%F:%L) %-5p - %m%n" />
-		</RollingFile>
-		
-		<RollingFile name="APP_INSTALL_SDK_CALLBACK"
-			fileName="/www/applog/app_install/sdk_callback.log"
-			filePattern="/www/applog/app_install/sdk_callback-%d{yyyy-MM-dd}-%i.log">
-			<Policies>
-				<TimeBasedTriggeringPolicy interval="1"
-					modulate="true" />
-				<SizeBasedTriggeringPolicy size="512 MB" />
-			</Policies>
-			<PatternLayout pattern="%d (%F:%L) %-5p - %m%n" />
-		</RollingFile>
-		
-		<RollingFile name="APP_INSTALL_CB_CALLBACK"
-			fileName="/www/applog/app_install/cb_callback.log"
-			filePattern="/www/applog/app_install/cb_callback-%d{yyyy-MM-dd}-%i.log">
-			<Policies>
-				<TimeBasedTriggeringPolicy interval="1"
-					modulate="true" />
-				<SizeBasedTriggeringPolicy size="512 MB" />
-			</Policies>
-			<PatternLayout pattern="%d (%F:%L) %-5p - %m%n" />
-		</RollingFile>
-		
-		<RollingFile name="APP_INSTALL_GA_CALLBACK"
-			fileName="/www/applog/app_install/ga_callback.log"
-			filePattern="/www/applog/app_install/ga_callback-%d{yyyy-MM-dd}-%i.log">
-			<Policies>
-				<TimeBasedTriggeringPolicy interval="1"
-					modulate="true" />
-				<SizeBasedTriggeringPolicy size="512 MB" />
-			</Policies>
-			<PatternLayout pattern="%d (%F:%L) %-5p - %m%n" />
-		</RollingFile>
 
 
 
@@ -135,35 +48,23 @@
 			<AppenderRef ref="STDOUT" />
 			<AppenderRef ref="FILEOUT" />
 		</Root>
+
+		<Logger name="com.ghw.sdk.bkd" level="debug">
+		</Logger>
+
+		<Logger name="druid.sql.Statement" level="debug">
+			<AppenderRef ref="STDOUT" />
+		</Logger>
+
+
+
 		<Logger name="com.ghw.sdk.bkd" level="debug">
 		</Logger>
 		<Logger name="pay.request" level="debug" additivity="false">
 			<AppenderRef ref="FILE_PAY_REQUEST" />
 		</Logger>
-		<Logger name="pay.reply.front" level="debug" additivity="false">
-			<AppenderRef ref="FILE_PAY_REPLY_FRONT" />
-		</Logger>
-		<Logger name="pay.reply.invalid" level="debug" additivity="false">
-			<AppenderRef ref="FILE_PAY_REPLY_INVALID" />
-		</Logger>
-		<Logger name="request.handle" level="debug" additivity="false">
-			<AppenderRef ref="REQUEST_HANDLE" />
-		</Logger>
 
-		<Logger name="app.crash.report" level="debug" additivity="false">
-			<AppenderRef ref="APP_CRASH_REPORT" />
-		</Logger>
-		<Logger name="app.install.af.callback" level="debug" additivity="false">
-			<AppenderRef ref="APP_INSTALL_AF_CALLBACK" />
-		</Logger>
-		<Logger name="app.install.sdk.callback" level="debug" additivity="false">
-			<AppenderRef ref="APP_INSTALL_SDK_CALLBACK" />
-		</Logger>
-		<Logger name="app.install.cb.callback" level="debug" additivity="false">
-			<AppenderRef ref="APP_INSTALL_CB_CALLBACK" />
-		</Logger>
-		<Logger name="app.install.ga.callback" level="debug" additivity="false">
-			<AppenderRef ref="APP_INSTALL_GA_CALLBACK" />
-		</Logger>
+
+
 	</Loggers>
 </Configuration>

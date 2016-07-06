@@ -3,7 +3,10 @@
  */
 package study.util;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.pool.DruidDataSourceFactory;
+import com.alibaba.druid.sql.SQLUtils;
+import com.alibaba.fastjson.JSON;
 import com.google.common.base.MoreObjects;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
@@ -14,8 +17,6 @@ import java.io.*;
 import java.lang.reflect.Method;
 import java.sql.*;
 import java.util.*;
-
-//import org.logicalcobwebs.proxool.configuration.JAXPConfigurator;
 
 /**
  * 数据库操作工具类
@@ -260,7 +261,6 @@ public class DruidDbUtil {
             // 获取结果集的meta数据
             ResultSetMetaData meta = rs.getMetaData();
             int columns = meta.getColumnCount();
-
             // 构建clazz method map
             Method[] methods = clazz.getMethods();
             Map<String, Method> methodMap = new HashMap<String, Method>();
@@ -289,6 +289,7 @@ public class DruidDbUtil {
                         }
                     }
                 }
+                System.out.println(JSON.toJSONString(bean));
                 rt.add(bean);
             }
             return rt;
@@ -334,7 +335,6 @@ public class DruidDbUtil {
             //java应用
             confile = DruidDbUtil.class.getClassLoader().getResource("").getPath()
                     + confile;
-            System.out.println(confile);
             File file = new File(confile);
             inputStream = new BufferedInputStream(new FileInputStream(file));
             p.load(inputStream);
@@ -347,9 +347,6 @@ public class DruidDbUtil {
             Iterator iterator = p.entrySet().iterator();
             while (iterator.hasNext()) {
                 Map.Entry entry = (Map.Entry) iterator.next();
-                System.out.println(entry.getKey().toString());
-//                String arr[]=entry.getKey().toString().split("\\.");
-//                System.out.println(JSON.toJSONString(arr));
                 String dataSource = entry.getKey().toString().split("\\.")[0];
                 if (!Objects.equals("aliasNames", entry.getKey()) && dataSourceParamMap.containsKey(dataSource)) {
                     String propertyName = entry.getKey().toString().split("\\.")[1];
@@ -358,7 +355,10 @@ public class DruidDbUtil {
             }
             for (String dataSourceName : dataSourceParamMap.keySet()) {
                 DataSource dataSource = DruidDataSourceFactory.createDataSource(dataSourceParamMap.get(dataSourceName));
+//                DruidDataSource druidDataSource = (DruidDataSource)dataSource;
+//                druidDataSource.
                 dataSourceMap.put(dataSourceName, dataSource);
+//                SQLUtils.
             }
 
         } catch (Exception e) {
@@ -374,9 +374,6 @@ public class DruidDbUtil {
         }
     }
 
-    public static void main(String[] args) {
-
-    }
 
     /**
      * 执行query单列字段操作

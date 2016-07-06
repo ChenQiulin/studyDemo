@@ -10,7 +10,8 @@ import study.util.DruidDbUtil;
  * @date 2016/6/17
  */
 public class Simple {
-    public static void main(String[] args) throws Exception {
-        System.out.println(JSON.toJSONString(DruidDbUtil.executeQuery("test", "select * FROM  sys_user limit 10;", SysUser.class)));
+    public static void main(String[] args) {
+
+        System.out.println(JSON.toJSONString(DruidDbUtil.executeQueryForMap("test", "select * FROM  sys_user limit 10;")));
     }
 }
