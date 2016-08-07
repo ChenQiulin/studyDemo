@@ -44,18 +44,22 @@ public class DiscardServer {
              .channel(NioServerSocketChannel.class) // (3)这里我们指定使用NioServerSocketChannel类来举例说明一个新的Channel如何接收进来的连接。
              .childHandler(new ChannelInitializer<SocketChannel>() { // (4)这里的事件处理类经常会被用来处理一个最近的已经接收的Channel。
                                                                         // ChannelInitializer是一个特殊的处理类，他的目的是帮助使用者配置一个新的Channel。
-                                                                        // 也许你想通过增加一些处理类比如DiscardServerHandle来配置一个新的Channel或者其对应的ChannelPipeline来实现你的网络程序。
+                                                                        // 也许你想通过增加一些处理类比如DiscardServerHandle来配置一个新的Channel或者其对应
+                                                                        // 的ChannelPipeline来实现你的网络程序。
                                                                         // 当你的程序变的复杂时，可能你会增加更多的处理类到pipline上，然后提取这些匿名类到最顶层的类上。
                  @Override
                  public void initChannel(SocketChannel ch) throws Exception {
                      ch.pipeline().addLast(new DiscardServerHandler());
                  }
              })
-             .option(ChannelOption.SO_BACKLOG, 128)          // (5)你可以设置这里指定的通道实现的配置参数。我们正在写一个TCP/IP的服务端，因此我们被允许设置socket的参数选项比如tcpNoDelay和keepAlive。请参考ChannelOption和详细的ChannelConfig实现的接口文档以此可以对ChannelOptions的有一个大概的认识。
-             .childOption(ChannelOption.SO_KEEPALIVE, true); // (6)你关注过option()和childOption()吗？option()是提供给NioServerSocketChannel用来接收进来的连接。childOption()是提供给由父管道ServerChannel接收到的连接，在这个例子中也是NioServerSocketChannel。
+             .option(ChannelOption.SO_BACKLOG, 128)          // (5)你可以设置这里指定的通道实现的配置参数。我们正在写一个TCP/IP的服务端，因此我们被允许设置socket的
+             // 参数选项比如tcpNoDelay和keepAlive。请参考ChannelOption和详细的ChannelConfig实现的接口文档以此可以对ChannelOptions的有一个大概的认识。
+             .childOption(ChannelOption.SO_KEEPALIVE, true); // (6)你关注过option()和childOption()吗？option()是提供给NioServerSocketChannel用来接收进来的连接。
+             // childOption()是提供给由父管道ServerChannel接收到的连接，在这个例子中也是NioServerSocketChannel。
 
             // Bind and start to accept incoming connections.
-            ChannelFuture f = b.bind(port).sync(); // (7)我们继续，剩下的就是绑定端口然后启动服务。这里我们在机器上绑定了机器所有网卡上的8080端口。当然现在你可以多次调用bind()方法(基于不同绑定地址)。
+            ChannelFuture f = b.bind(port).sync(); // (7)我们继续，剩下的就是绑定端口然后启动服务。这里我们在机器上绑定了机器所有网卡上的8080端口。
+            // 当然现在你可以多次调用bind()方法(基于不同绑定地址)。
 
             // Wait until the server socket is closed.
             // In this example, this does not happen, but you can do that to gracefully
