@@ -213,7 +213,7 @@
         <dependency>
             <groupId>net.spy</groupId>
             <artifactId>spymemcached</artifactId>
-            <version>2.11.6</version>
+            <version>2.12.1</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -335,6 +335,13 @@
             <artifactId>netty-all</artifactId> <!-- Use 'netty-all' for 4.0 or above -->
             <version>4.1.1.Final</version>
             <scope>compile</scope>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.googlecode.xmemcached</groupId>
+            <artifactId>xmemcached</artifactId>
+            <version>2.0.1</version>
         </dependency>
 
     </dependencies>
