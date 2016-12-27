@@ -42,19 +42,18 @@ public class ConsistentHash<T> {
     }
 
     public static void main(String[] args) {
-        String [] hostArr = {"host1","host2","host3"};
+        String[] hostArr = {"host1", "host2", "host3"};
         List<String> nodes = Arrays.asList(hostArr);
         int numberOfReplicas = 10;
-        ConsistentHash<String> consistentHash = new ConsistentHash<String>(new HashFunction(),numberOfReplicas,nodes);
-        Map<String,Set<Integer>> cacheMap= new HashMap<String, Set<Integer>>();
+        ConsistentHash<String> consistentHash = new ConsistentHash<String>(new HashFunction(), numberOfReplicas, nodes);
+        Map<String, Set<Integer>> cacheMap = new HashMap<String, Set<Integer>>();
         int keyNum = 1000;
-        for(int i=0;i<keyNum;i++){
-            Set<Integer> set = consistentHash.get(keyNum+"")==null? new HashSet<Integer>():cacheMap.get(consistentHash.get(keyNum+""));
+        for (int i = 0; i < keyNum; i++) {
+            Set<Integer> set = consistentHash.get(keyNum + "") == null ? new HashSet<Integer>() : cacheMap.get(consistentHash.get(keyNum + ""));
             set.add(keyNum);
         }
 
         System.out.println("*************************** 3个cache  ***************************************");
-
 
 
         System.out.println("***************************  4个cache  ***************************************");

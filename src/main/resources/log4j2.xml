@@ -58,7 +58,7 @@
 
 
 
-		<Logger name="com.ghw.sdk.bkd" level="debug">
+		<Logger name="study" level="debug">
 		</Logger>
 		<Logger name="pay.request" level="debug" additivity="false">
 			<AppenderRef ref="FILE_PAY_REQUEST" />
