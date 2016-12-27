@@ -1,6 +1,6 @@
-package study.java.dao.impl;
+package study.proxy.dao.impl;
   
-import study.java.dao.Count;
+import study.proxy.dao.Count;
 
 /** 
  * 委托类(包含业务逻辑) 

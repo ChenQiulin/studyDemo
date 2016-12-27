@@ -1,7 +1,7 @@
-package study.java.test;
+package study.proxy.test;
   
-import study.java.dao.impl.CountImpl;
-import study.java.dao.impl.CountProxy;
+import study.proxy.dao.impl.CountImpl;
+import study.proxy.dao.impl.CountProxy;
 
 /** 
  *测试Count类 
