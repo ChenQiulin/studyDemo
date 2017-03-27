@@ -1,6 +1,6 @@
-package study.java.dao.impl;
+package study.proxy.dao.impl;
   
-import study.java.dao.Count;
+import study.proxy.dao.Count;
   
 /** 
  * 这是一个代理类（增强CountImpl实现类） 

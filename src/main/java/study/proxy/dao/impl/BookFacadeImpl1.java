@@ -1,4 +1,4 @@
-package study.java.dao.impl;
+package study.proxy.dao.impl;
   
 /** 
  * 这个是没有实现接口的实现类 

@@ -1,4 +1,4 @@
-package study.java.proxy;
+package study.proxy.proxy;
   
 import java.lang.reflect.Method;  
   

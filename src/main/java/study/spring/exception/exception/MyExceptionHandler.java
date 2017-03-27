@@ -17,10 +17,12 @@ public class MyExceptionHandler implements HandlerExceptionResolver {
 
     public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler,
 			Exception ex) {
+
+    	logger.debug("MyExceptionHandler.resolveException.......................");
 		Map<String, Object> model = new HashMap<String, Object>();
 		model.put("ex", ex);
 
-		logger.error(ex.getMessage(),ex);
+		logger.error(ex.getMessage());
 
 		// 根据不同错误转向不同页面
 		if(ex instanceof BusinessException) {

@@ -1,4 +1,4 @@
-package study.java.dao;
+package study.proxy.dao;
   
 /** 
  * 定义一个账户接口 

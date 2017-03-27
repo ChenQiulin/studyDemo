@@ -1,7 +1,7 @@
-package study.java.test;
+package study.proxy.test;
   
-import study.java.dao.impl.BookFacadeImpl1;
-import study.java.proxy.BookFacadeCglib;
+import study.proxy.dao.impl.BookFacadeImpl1;
+import study.proxy.proxy.BookFacadeCglib;
 
 
 public class TestCglib {  
