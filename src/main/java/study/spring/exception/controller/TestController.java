@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import study.spring.exception.exception.BusinessException;
 import study.spring.exception.exception.ParameterException;
 import study.spring.exception.service.TestService;
@@ -22,7 +23,7 @@ public class TestController extends BaseController {
     private TestService testService;
 
     @RequestMapping(value = "/controller.do", method = RequestMethod.GET)
-    public void controller(HttpServletResponse response, Integer id) throws Exception {
+    public void controller(HttpServletResponse response, @RequestParam(value="id",required = true) Integer id) throws Exception {
         logger.debug("Id:" + id);
         switch (id) {
             case 1:

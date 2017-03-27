@@ -21,13 +21,8 @@ public class RedisSimpleTest {
     static {
         //只给集群里一个实例就可以
         Set<HostAndPort> jedisClusterNodes = new HashSet<HostAndPort>();
-        jedisClusterNodes.add(new HostAndPort("172.16.100.58", 6380));
-//        jedisClusterNodes.add(new HostAndPort("172.16.100.58", 6381));
-//        jedisClusterNodes.add(new HostAndPort("172.16.100.58", 6382));
-//        jedisClusterNodes.add(new HostAndPort("172.16.100.58", 7380));
-//        jedisClusterNodes.add(new HostAndPort("172.16.100.58", 7381));
-//        jedisClusterNodes.add(new HostAndPort("172.16.100.58", 7382));
-        binaryJc = new BinaryJedisCluster(jedisClusterNodes);
+        jedisClusterNodes.add(new HostAndPort("172.16.100.58", 7000));
+//        binaryJc = new BinaryJedisCluster(jedisClusterNodes);
          jc = new JedisCluster(jedisClusterNodes);
     }
 
@@ -57,11 +52,12 @@ public class RedisSimpleTest {
 
         for (int i = 1; i <= 10000; i++) {
             long start = System.currentTimeMillis();
-            jc.set("k:" + i, "v" + i);
-            System.out.print("set " + i +"th value in " + (System.currentTimeMillis() - start) + " ms");
+//            jc.set("k" + i, "v" + i);
+//            System.out.print("set " + i +"th value in " + (System.currentTimeMillis() - start) + " ms");
+            jc.del("k"+i);
             start = System.currentTimeMillis();
-            jc.get("k:" + i);
-            System.out.println(", get " + i +"th value in " + (System.currentTimeMillis() - start) + " ms");
+            String value = jc.get("k" + i);
+            System.out.println(value+", get " + i +"th value in " + (System.currentTimeMillis() - start) + " ms");
         }
     }
 
@@ -70,10 +66,10 @@ public class RedisSimpleTest {
 
         for (int i = 1; i <= 10000; i++) {
             long start = System.currentTimeMillis();
-            jc.set("k:" + i, "v" + i);
+            jc.set("k" + i, "v" + i);
             System.out.print("set " + i +"th value in " + (System.currentTimeMillis() - start) + " ms");
             start = System.currentTimeMillis();
-            jc.get("k:" + i);
+            jc.get("k" + i);
 //            jc.pu
             System.out.println(", get " + i +"th value in " + (System.currentTimeMillis() - start) + " ms");
         }

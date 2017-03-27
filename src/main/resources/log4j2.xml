@@ -49,7 +49,7 @@
 			<AppenderRef ref="FILEOUT" />
 		</Root>
 
-		<Logger name="com.ghw.sdk.bkd" level="debug">
+		<Logger name="study" level="debug">
 		</Logger>
 
 		<Logger name="druid.sql.Statement" level="debug">
