@@ -386,6 +386,27 @@ public class HttpClientUtil {
 
 			// 发送请求
 			HttpResponse httpresponse = httpClient.execute(httppost);
+
+            //----------判断是否重定向开始
+            int code = httpresponse.getStatusLine().getStatusCode();
+            String newuri="";
+            if (code == 302) {
+                Header header = httpresponse.getFirstHeader("location"); // 跳转的目标地址是在 HTTP-HEAD 中的
+                newuri = header.getValue(); // 这就是跳转后的地址，再向这个地址发出新申请，以便得到跳转后的信息是啥。
+
+                // Post请求
+                httppost = new HttpPost("http:"+newuri);
+                // 设置参数
+                httppost.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
+                httpClient = new DefaultHttpClient();
+                if (useHttps) {
+                    httpClient = HttpClientUtil.wrapClient(httpClient);
+                }
+                // 发送请求
+                httpresponse = httpClient.execute(httppost);
+            }
+
+
 			// 获取返回数据
 			HttpEntity entity = httpresponse.getEntity();
 

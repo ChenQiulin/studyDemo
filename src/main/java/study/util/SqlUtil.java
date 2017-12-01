@@ -329,7 +329,7 @@ public final class SqlUtil {
 		}
 		String sql = sqlBuilder.toString();
 		sql = StringUtils.removeEnd(sql, ",");
-		if (!StringUtil.isNullOrBlank(condition)) {
+		if (StringUtil.isNullOrBlank(condition)) {
 			sql += "  " + condition;
 		}
 		return sql;
