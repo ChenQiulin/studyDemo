@@ -146,5 +146,3 @@ public class TestListenableFuture2 {
     }
 
 }
-
-}
