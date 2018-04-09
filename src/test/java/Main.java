@@ -20,13 +20,14 @@ public class Main {
     public static void main(String[] args) throws Exception {
 
         Map<String,Object> param = Maps.newHashMap();
-        String result  = HttpClientUtil.get("http://pre.lizhi.fm/809228/2641262820666727430",param);
+        String result  = HttpClientUtil.get("http://m.pre.lizhi.fm/vodapi/voice/info/2641262820666727430",param);
 
+        JSONObject object = JSONObject.parseObject(result).getJSONObject("userVoice").getJSONObject("userInfo");
         System.out.println(result);
-        System.out.println(result.split("breadcrumbs")[1]);
-
-        String band = result.split("breadcrumbs")[1].split("</a><a href=\"/user/")[1].split(">")[0];
-        System.out.println(band);
+//        System.out.println(result.split("breadcrumbs")[1]);
+//
+//        String band = result.split("breadcrumbs")[1].split("</a><a href=\"/user/")[1].split(">")[0];
+//        System.out.println(band);
 
 
 //        ExecutorService executorService =   Executors.newFixedThreadPool(50);

@@ -26,6 +26,7 @@
             </testResource>
         </testResources>
 
+
         <pluginManagement>
             <plugins>
                 <!-- compiler插件,设定JDK版本-->
@@ -97,7 +98,11 @@
     </build>
     <dependencies>
 
-
+        <dependency>
+            <groupId>fm.lizhi.commons</groupId>
+            <artifactId>lz-commons-util</artifactId>
+            <version>2.3.7</version>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

@@ -14,7 +14,7 @@ import secret.JSSecret;
 public class Demo2 {
     public static void main(String[] args) {
         try {
-            String music_id = "516392300";
+            String music_id = "1368769291";
 //            UrlParamPair urlpp = Api.getDetailOfPlaylist(music_id);
             UrlParamPair urlpp = Api.getCommentList(music_id,20);
             String reqStr = urlpp.getParas().toJSONString();
@@ -22,7 +22,7 @@ public class Demo2 {
             //某个歌的评论json地址
             //http://music.163.com/weapi/v1/resource/comments/R_SO_4_516392300?csrf_token=1ac15bcb947b3900d9e8e6039d121a81
             Connection.Response
-                    commentResponse = Jsoup.connect("http://music.163.com/weapi/v1/resource/comments/R_SO_4_"+music_id+"?csrf_token=")
+                    commentResponse = Jsoup.connect("http://music.163.com/weapi/v1/resource/comments/A_DJ_1_1368769291?csrf_token=")
                     .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:57.0) Gecko/20100101 Firefox/57.0")
                     .header("Accept", "*/*")
                     .header("Cache-Control", "no-cache")
